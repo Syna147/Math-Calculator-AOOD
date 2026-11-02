@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Function Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="calculator">
+    <h1>Calc-o-Matic</h1>
+
+   
+    <div class="display">
+      <p id="Output">0</p>
+    </div>
+
+
+    <section>
+      <h2>Basic &amp; Math</h2>
+      <div class="inputs">
+        <input type="number" id="numA" placeholder="A">
+        <input type="number" id="numB" placeholder="B">
+      </div>
+
+      <div class="keys">
+        <button class="key op" onclick="add()">A + B</button>
+        <button class="key op" onclick="subtract()">A − B</button>
+        <button class="key op" onclick="multiply()">A × B</button>
+        <button class="key op" onclick="divide()">A ÷ B</button>
+
+        <button class="key math" onclick="roundA()">round(A)</button>
+        <button class="key math" onclick="power()">A ^ B</button>
+        <button class="key math" onclick="circleArea()">π r² (r=A)</button>
+        <button class="key math" onclick="squareRoot()">√A</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Stats from a file</h2>
+      <input type="file" id="fileToLoad" accept=".txt,.csv">
+      <button class="button" onclick="checkFileProperty()">Load Selected</button>
+      <p id="Message"></p>
+      <textarea class="textinput" id="fileInput" cols="40" rows="2" placeholder="File contents show up here"></textarea>
+
+      <div class="keys">
+        <button class="key stat" onclick="mean()">Mean</button>
+        <button class="key stat" onclick="median()">Median</button>
+        <button class="key stat" onclick="mode()">Mode</button>
+        <button class="key stat" onclick="max()">Max</button>
+        <button class="key stat" onclick="min()">Min</button>
+      </div>
+    </section>
+  </div>
+
+
+  <script src="js/saveText.js"></script>
+  <script src="js/readTextArea.js"></script>
+  <script src="js/calculator.js"></script>
+</body>
+</html>
