@@ -4,17 +4,150 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Multi-Function Calculator</title>
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #1f2937;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .calculator {
+      background: #111827;
+      color: #f9fafb;
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .display {
+      background: #000;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      text-align: right;
+      overflow-x: auto;
+    }
+
+    #Output {
+      margin: 0;
+      font-size: 1.8rem;
+      font-family: monospace;
+      color: #34d399;
+    }
+
+    section {
+      margin-bottom: 24px;
+    }
+
+    .inputs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    input[type="number"] {
+      flex: 1;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input[type="file"] {
+      max-width: 100%;
+      color: #f9fafb;
+    }
+
+    .keys {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .key,
+    .button {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.1s, filter 0.2s;
+    }
+
+    .key:hover,
+    .button:hover {
+      filter: brightness(1.15);
+    }
+
+    .key:active,
+    .button:active {
+      transform: scale(0.96);
+    }
+
+    .op {
+      background: #f59e0b;
+    }
+
+    .math {
+      background: #3b82f6;
+    }
+
+    .stat {
+      background: #10b981;
+    }
+
+    .button {
+      background: #6b7280;
+      margin-top: 8px;
+    }
+
+    .textinput {
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 8px;
+      border: none;
+      font-family: monospace;
+      resize: vertical;
+    }
+
+    #Message {
+      color: #fca5a5;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
   <div class="calculator">
     <h1>Calc-o-Matic</h1>
 
-   
     <div class="display">
       <p id="Output">0</p>
     </div>
-
 
     <section>
       <h2>Basic &amp; Math</h2>
@@ -53,9 +186,7 @@
     </section>
   </div>
 
-
-  <script src="js/saveText.js"></script>
-  <script src="js/readTextArea.js"></script>
-  <script src="js/calculator.js"></script>
+    <script src="readTextArea.js"></script>
+  <script src="calculator.js"></script>
 </body>
 </html>
