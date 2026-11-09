@@ -1,4 +1,3 @@
-
 function show(value) {
   document.getElementById("Output").innerHTML = value;
 }
@@ -28,14 +27,24 @@ function add() {
   show(a + b);
 }
 
-// TODO: copy the pattern from add()
 function subtract() {
-
+  let a = getA();
+  let b = getB();
+  if (isNaN(a) || isNaN(b)) {
+    show("Enter A and B");
+    return;
+  }
+  show(a - b);
 }
 
-// TODO: copy the pattern from add()
 function multiply() {
-
+  let a = getA();
+  let b = getB();
+  if (isNaN(a) || isNaN(b)) {
+    show("Enter A and B");
+    return;
+  }
+  show(a * b);
 }
 
 function divide() {
@@ -52,14 +61,23 @@ function divide() {
   show(a / b);
 }
 
-// TODO: only needs A. Use Math.round()
 function roundA() {
-
+  let a = getA();
+  if (isNaN(a)) {
+    show("Enter A");
+    return;
+  }
+  show(Math.round(a));
 }
 
-// TODO: Use Math.pow(a, b)
 function power() {
-
+  let a = getA();
+  let b = getB();
+  if (isNaN(a) || isNaN(b)) {
+    show("Enter A and B");
+    return;
+  }
+  show(Math.pow(a, b));
 }
 
 function circleArea() {
@@ -72,12 +90,19 @@ function circleArea() {
   show(area.toFixed(2));
 }
 
-// TODO: Use Math.sqrt(). What if A is negative?
 function squareRoot() {
-
+  let a = getA();
+  if (isNaN(a)) {
+    show("Enter A");
+    return;
+  }
+  if (a < 0) {
+    show("Can't take the square root of a negative number");
+    return;
+  }
+  show(Math.sqrt(a));
 }
 
-// ===== PART 2: STATS FROM A FILE =====
 function mean() {
   let nums = getFileNumbers();
   if (nums == null) return;
@@ -93,7 +118,6 @@ function median() {
   let nums = getFileNumbers();
   if (nums == null) return;
 
-  // (a, b) => a - b sorts by number. Plain sort() puts 10 before 9!
   let sorted = [...nums].sort((a, b) => a - b);
   let mid = Math.floor(sorted.length / 2);
 
@@ -104,18 +128,45 @@ function median() {
   }
 }
 
-// TODO: most common number.
-// Hint: counts[num] = (counts[num] || 0) + 1, then find the biggest count
 function mode() {
+  let nums = getFileNumbers();
+  if (nums == null) return;
 
+  let counts = {};
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
+    counts[num] = (counts[num] || 0) + 1;
+  }
+
+  let maxCount = 0;
+  for (let key in counts) {
+    if (counts[key] > maxCount) {
+      maxCount = counts[key];
+    }
+  }
+
+  let modes = [];
+  for (let key in counts) {
+    if (counts[key] == maxCount) {
+      modes.push(key);
+    }
+  }
+
+  if (maxCount == 1) {
+    show("No mode (every number appears once)");
+  } else {
+    show(modes.join(", "));
+  }
 }
 
-// TODO: Hint: Math.max(...nums)
 function max() {
-
+  let nums = getFileNumbers();
+  if (nums == null) return;
+  show(Math.max(...nums));
 }
 
-// TODO: Hint: Math.min(...nums)
 function min() {
-
+  let nums = getFileNumbers();
+  if (nums == null) return;
+  show(Math.min(...nums));
 }
