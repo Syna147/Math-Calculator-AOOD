@@ -1,12 +1,15 @@
 function show(value) {
   document.getElementById("Output").innerHTML = value;
 }
+
 function getA() {
   return parseFloat(document.getElementById("numA").value);
 }
+
 function getB() {
   return parseFloat(document.getElementById("numB").value);
 }
+
 function getFileNumbers() {
   let nums = splitFunction();
   if (nums.length == 0) {
@@ -15,7 +18,6 @@ function getFileNumbers() {
   }
   return nums;
 }
-
 
 function add() {
   let a = getA();
